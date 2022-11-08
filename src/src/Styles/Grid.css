@@ -1,0 +1,21 @@
+.grid {
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: -1;
+}
+.grid .row {
+    width: 100%;
+    display: flex;
+}
+.grid .row>div {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    transition: background-color 0.2s;
+    border: 1px solid grey;
+}
+.grid .row>div:hover {
+    background-color: lightblue;
+
+}
