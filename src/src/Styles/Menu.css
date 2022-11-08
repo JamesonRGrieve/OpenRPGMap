@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+.menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transition: background-color 0.6s, border 0.6s;
+    border-right: 4px solid transparent;
+}
+.menu a {
+    display: inline-block;
+}
+.menu.active {
+    background-color: RGB(100,100,100);
+    border-right: 4px solid black;
+}
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.menu li {
+    min-width: 8rem;
+    font-weight: bold;
+    padding: 5px;
+    width: 100%;
+    transition: background-color 0.4s, border 0.4s;
+    background-color: RGB(200,200,200);
+    border-collapse: collapse;
+    border-bottom: 4px solid black;
+}
+.menu.collapsed #toggle {
+    color: white;
+}
+#toggle {
+    transform: rotate(0deg);
+    font-size: 2rem;
+    font-weight: bolder;
+    transition: transform 0.85s;
+}
+.menu:not(.active) li:first-of-type {
+    border-bottom: 4px solid transparent;
+    background-color: transparent;
+}
+
+
+
+
+#toggle.open {
+    transform: rotate(-90deg);
+}
+
+@keyframes li-animate {
+	from {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+@keyframes li-animate2 {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+}
+.menu:not(.active) li:not(:first-of-type) {
+    opacity: 0;
+}
+.hidden {
+    animation:li-animate2 0.5s linear backwards;
+    opacity: 0;
+}
+.menuItem {
+    animation: li-animate 0.5s linear;
+}
